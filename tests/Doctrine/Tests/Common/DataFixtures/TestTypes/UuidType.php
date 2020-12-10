@@ -12,7 +12,10 @@ class UuidType extends Type
 {
     public const NAME = 'uuid';
 
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    /**
+     * @param mixed[] $fieldDeclaration
+     */
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         $fieldDeclaration['length'] = 36;
         $fieldDeclaration['fixed']  = true;
@@ -20,17 +23,27 @@ class UuidType extends Type
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
 
+    /**
+     * @param ?string $value
+     *
+     * @return ?Uuid
+     */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         return $value === null ? null : new Uuid($value);
     }
 
+    /**
+     * @param ?Uuid $value
+     *
+     * @return ?string
+     */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         return $value === null ? null : (string) $value;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return self::NAME;
     }
