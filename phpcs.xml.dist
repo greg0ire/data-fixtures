@@ -37,7 +37,9 @@
     <rule ref="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming">
         <exclude-pattern>src/DependentFixtureInterface.php</exclude-pattern>
         <exclude-pattern>src/FixtureInterface.php</exclude-pattern>
+        <exclude-pattern>src/Purger/MongoDBPurgerInterface.php</exclude-pattern>
         <exclude-pattern>src/Purger/ORMPurgerInterface.php</exclude-pattern>
+        <exclude-pattern>src/Purger/PHPCRPurgerInterface.php</exclude-pattern>
         <exclude-pattern>src/Purger/PurgerInterface.php</exclude-pattern>
         <exclude-pattern>src/OrderedFixtureInterface.php</exclude-pattern>
         <exclude-pattern>src/SharedFixtureInterface.php</exclude-pattern>
